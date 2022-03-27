@@ -1,4 +1,4 @@
-object WallService {
+ject WallService {
     private var posts = emptyArray<Post>()
     private var postID = 1
 
