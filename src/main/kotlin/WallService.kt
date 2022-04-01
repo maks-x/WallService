@@ -21,12 +21,14 @@ object WallService {
         return false
     }
 
-    fun printPostWithID(requiredID: Int) {
-        for (item in posts) {
+    fun postByID(requiredID: Int): Post? {
+        var post: Post? = null
+        for ((index, item) in posts.withIndex()) {
             when (item.id) {
-                requiredID -> println(item)
+                requiredID -> post = posts[index]
             }
         }
+        return post
     }
 
     fun clearWall(): Boolean {
