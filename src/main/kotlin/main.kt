@@ -17,10 +17,10 @@ fun main() {
         )
     )
 
-    WallService.printPostWithID(2)
+    println(WallService.postByID(2))
 
     Thread.sleep(2000)
     WallService.update(Post(id = 2, text = "We have updated the second post"))
 
-    WallService.printPostWithID(2)
+    println(WallService.postByID(2))
 }
