@@ -17,11 +17,11 @@ fun main() {
         )
     )
 
-<span class="nc" id="L20">    println(WallService.postByID(2))</span>
+<span class="nc" id="L20">    WallService.printPostWithID(2)</span>
 
 <span class="nc" id="L22">    Thread.sleep(2000)</span>
 <span class="nc" id="L23">    WallService.update(Post(id = 2, text = &quot;We have updated the second post&quot;))</span>
 
-<span class="nc" id="L25">    println(WallService.postByID(2))</span>
+<span class="nc" id="L25">    WallService.printPostWithID(2)</span>
 <span class="nc" id="L26">}</span>
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
