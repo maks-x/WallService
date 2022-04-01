@@ -4,12 +4,12 @@ import java.time.LocalDateTime
 import java.time.ZoneOffset
 
 <span class="fc" id="L6">data class Post(</span>
-<span class="fc" id="L7">    val id: Int? = null,</span>
+<span class="fc" id="L7">    val id: Int = 0,</span>
 <span class="pc" id="L8">    val ownerID: Int = 1,</span>
 <span class="fc" id="L9">    val fromID: Int = 1,</span>
 <span class="pc" id="L10">    val createdBy: Int = 0,</span>
 <span class="fc" id="L11">    val date: Int = (System.currentTimeMillis() / 1000).toInt(),</span>
-<span class="pc" id="L12">    val text: String? = null,</span>
+<span class="pc" id="L12">    val text: String,</span>
 <span class="pc" id="L13">    val replyOwnerID: Int = 0,</span>
 <span class="pc" id="L14">    val replyPostID: Int = 0,</span>
 <span class="pc" id="L15">    val friendsOnly: Boolean = false,</span>
@@ -19,54 +19,31 @@ import java.time.ZoneOffset
 <span class="pc" id="L19">    val reposts: Reposts = Reposts(),</span>
 <span class="pc" id="L20">    val views: Views = Views(),</span>
 <span class="pc" id="L21">    val postType: String = &quot;post&quot;,</span>
-<span class="pc" id="L22">    val postSource: PostSource? = null,</span>
-<span class="pc" id="L23">    val geo: Geo? = null,</span>
-<span class="pc" id="L24">    val signerID: Int = 0,</span>
-<span class="pc" id="L25">    val copyHistory: Array&lt;Post&gt;? = null,</span>
-<span class="pc" id="L26">    val canPin: Boolean = false,</span>
-<span class="pc" id="L27">    val canDelete: Boolean = false,</span>
-<span class="pc" id="L28">    val canEdit: Boolean = false,</span>
-<span class="pc" id="L29">    val isPinned: Boolean = true,</span>
-<span class="pc" id="L30">    val markedAsAds: Boolean = false,</span>
-<span class="pc" id="L31">    val isFavorite: Boolean = false,</span>
-<span class="pc" id="L32">    val donut: Donut = Donut(),</span>
-<span class="pc" id="L33">    val postponedID: Boolean = false</span>
+<span class="pc" id="L22">    val signerID: Int = 0,</span>
+<span class="pc" id="L23">    val canPin: Boolean = false,</span>
+<span class="pc" id="L24">    val canDelete: Boolean = false,</span>
+<span class="pc" id="L25">    val canEdit: Boolean = false,</span>
+<span class="pc" id="L26">    val isPinned: Boolean = true,</span>
+<span class="pc" id="L27">    val markedAsAds: Boolean = false,</span>
+<span class="pc" id="L28">    val isFavorite: Boolean = false,</span>
+<span class="pc" id="L29">    val donut: Donut = Donut(),</span>
+<span class="pc" id="L30">    val postponedID: Boolean = false</span>
     ) {
 
     @Override
     override fun toString(): String {
-<span class="nc" id="L38">        return &quot;&quot;&quot;</span>
+<span class="nc" id="L35">        return &quot;&quot;&quot;</span>
             ///////////////////////////////////
-<span class="nc" id="L40">            Post ID: $id  Author: $fromID    ${</span>
+<span class="nc" id="L37">            Post ID: $id  Author: $fromID    ${</span>
                 //TODO РІРѕР·РјРѕР¶РЅРѕ СЃ РґР°С‚РѕР№ РјРѕР¶РЅРѕ РїСЂРѕС‰Рµ Рё Р»Р°РєРѕРЅРёС‡РЅРµРµ, РЅРѕ РїРѕРєР° С‚Р°Рє)
-<span class="nc" id="L42">                LocalDateTime.ofInstant(Instant.ofEpochSecond(date.toLong()), ZoneOffset.systemDefault())</span>
-<span class="nc" id="L43">            }</span>
+<span class="nc" id="L39">                LocalDateTime.ofInstant(Instant.ofEpochSecond(date.toLong()), ZoneOffset.systemDefault())</span>
+<span class="nc" id="L40">            }</span>
             ***
-<span class="nc" id="L45">                $text</span>
+<span class="nc" id="L42">                $text</span>
             ***
-<span class="nc" id="L47">            $views  $likes  $comments   $reposts</span>
-<span class="nc" id="L48">        &quot;&quot;&quot;.trimIndent()</span>
+<span class="nc" id="L44">            $views  $likes  $comments   $reposts</span>
+<span class="nc" id="L45">        &quot;&quot;&quot;.trimIndent()</span>
     }
 
-    override fun equals(other: Any?): Boolean {
-<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if (this === other) return true</span>
-<span class="nc bnc" id="L53" title="All 4 branches missed.">        if (javaClass != other?.javaClass) return false</span>
-
-<span class="nc bnc" id="L55" title="All 2 branches missed.">        other as Post</span>
-
-<span class="nc bnc" id="L57" title="All 2 branches missed.">        if (id != other.id) return false</span>
-<span class="nc bnc" id="L58" title="All 2 branches missed.">        if (fromID != other.fromID) return false</span>
-<span class="nc bnc" id="L59" title="All 2 branches missed.">        if (date != other.date) return false</span>
-
-<span class="nc" id="L61">        return true</span>
-    }
-
-    override fun hashCode(): Int {
-<span class="nc bnc" id="L65" title="All 2 branches missed.">        var result = id ?: 0</span>
-<span class="nc" id="L66">        result = 31 * result + fromID</span>
-<span class="nc" id="L67">        result = 31 * result + date</span>
-<span class="nc" id="L68">        return result</span>
-    }
-
-<span class="fc" id="L71">}</span>
+<span class="fc" id="L48">}</span>
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

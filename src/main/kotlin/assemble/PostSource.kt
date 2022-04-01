@@ -1,3 +1,0 @@
-package assemble
-
-class PostSource
