@@ -1,11 +1,11 @@
 object WallService {
     private var posts = emptyArray<Post>()
-    private var postID = 1
+    private var newPostID = 1
 
     fun add(post: Post): Post {
-        val newPost = post.copy(id = postID)
+        val newPost = post.copy(id = newPostID)
         posts += newPost
-        postID++
+        newPostID++
         return posts.last()
     }
 
@@ -13,7 +13,7 @@ object WallService {
         for ((index, item) in posts.withIndex()) {
             when (item.id) {
                 post.id -> {
-                    posts[index] = post.copy(fromId = item.fromId, date = item.date)
+                    posts[index] = post.copy(fromID = item.fromID, date = item.date)
                     return true
                 }
             }
@@ -21,16 +21,17 @@ object WallService {
         return false
     }
 
-    fun printPostWithID(ID: Int) {
+    fun printPostWithID(requiredID: Int) {
         for (item in posts) {
             when (item.id) {
-                ID -> println(item)
+                requiredID -> println(item)
             }
         }
     }
 
-    fun clearWall(){
+    fun clearWall(): Boolean {
         posts = emptyArray()
-        postID = 1
+        newPostID = 1
+        return true
     }
 }

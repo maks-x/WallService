@@ -1,7 +1,3 @@
-import assemble.Comments
-import assemble.Likes
-import assemble.Reposts
-import assemble.Views
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -10,20 +6,24 @@ class WallServiceTest {
 
     @Test
     fun add() {
-        val newPost = Post(
-            id = 4,
-            text = "test post"
-        )
-        val addedId = WallService.add(newPost).id
+        WallService.clearWall()
 
-        val result = addedId != 4 && addedId >= 1
+        WallService.add(Post(id = 1, text = "new post"))
+        val newestPost = WallService.add(Post(
+            id = 4,
+            text = "newest post"
+        ))
+
+        val result = newestPost.id == 2
 
         assertEquals(true, result)
     }
 
     @Test
     fun updateExisting() {
-        val postId = WallService.add(Post(text = "")).id
+        WallService.clearWall()
+
+        WallService.add(Post(text = ""))
         val result = WallService.update(Post(id = 1, text = "W"))
 
         assertTrue(result)
@@ -31,8 +31,10 @@ class WallServiceTest {
 
     @Test
     fun updateNoneExisting() {
-        val postId = WallService.add(Post(text = "")).id
-        val result = WallService.update(Post(id = 5, text = "W"))
+        WallService.clearWall()
+
+        WallService.add(Post(text = ""))
+        val result = WallService.update(Post(id = 2, text = "W"))
 
         assertFalse(result)
     }

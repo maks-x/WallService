@@ -1,8 +1,7 @@
 import assemble.*
 
 fun main() {
-    WallService.clearWall()
-    val firstPost = WallService.add(
+    WallService.add(
         Post(
             text = "This is the first post on our wall!",
             likes = Likes(count = 89),
@@ -12,7 +11,7 @@ fun main() {
         )
     )
 
-    val secondPost = WallService.add(
+    WallService.add(
         Post(
             text = "This is the second post on our wall!"
         )
@@ -21,7 +20,7 @@ fun main() {
     WallService.printPostWithID(2)
 
     Thread.sleep(2000)
-    println(WallService.update(Post(id = 2, text = "We have updated the second post")))
+    WallService.update(Post(id = 2, text = "We have updated the second post"))
 
     WallService.printPostWithID(2)
 }

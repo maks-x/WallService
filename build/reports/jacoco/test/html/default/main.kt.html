@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>main.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">WallService</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">main.kt</span></div><h1>main.kt</h1><pre class="source lang-java linenums">import assemble.*
+
+fun main() {
+<span class="nc" id="L4">    WallService.add(</span>
+<span class="nc" id="L5">        Post(</span>
+<span class="nc" id="L6">            text = &quot;This is the first post on our wall!&quot;,</span>
+<span class="nc" id="L7">            likes = Likes(count = 89),</span>
+<span class="nc" id="L8">            comments = Comments(count = 65),</span>
+<span class="nc" id="L9">            views = Views(count = 134),</span>
+<span class="nc" id="L10">            reposts = Reposts(count = 20)</span>
+        )
+    )
+
+<span class="nc" id="L14">    WallService.add(</span>
+<span class="nc" id="L15">        Post(</span>
+<span class="nc" id="L16">            text = &quot;This is the second post on our wall!&quot;</span>
+        )
+    )
+
+<span class="nc" id="L20">    WallService.printPostWithID(2)</span>
+
+<span class="nc" id="L22">    Thread.sleep(2000)</span>
+<span class="nc" id="L23">    WallService.update(Post(id = 2, text = &quot;We have updated the second post&quot;))</span>
+
+<span class="nc" id="L25">    WallService.printPostWithID(2)</span>
+<span class="nc" id="L26">}</span>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
