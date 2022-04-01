@@ -38,4 +38,15 @@ class WallServiceTest {
 
         assertFalse(result)
     }
+
+    @Test
+    fun testPostByID() {
+        WallService.clearWall()
+
+        val post1 = WallService.add(Post(1))
+        WallService.add(Post(2))
+        val result = WallService.postByID(1)
+
+        assertEquals(post1, result)
+    }
 }
