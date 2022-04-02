@@ -9,10 +9,12 @@ class WallServiceTest {
         WallService.clearWall()
 
         WallService.add(Post(id = 1, text = "new post"))
-        val newestPost = WallService.add(Post(
-            id = 4,
-            text = "newest post"
-        ))
+        val newestPost = WallService.add(
+            Post(
+                id = 4,
+                text = "newest post"
+            )
+        )
 
         val result = newestPost.id == 2
 
