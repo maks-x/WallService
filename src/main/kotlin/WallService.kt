@@ -1,7 +1,11 @@
 import assemble.postObjects.Post
+import assemble.wallObjects.Comment
+import exceptions.PostNotFoundException
 
 object WallService {
     private var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comment>()
+
     private var newPostID = 1
 
     fun add(post: Post): Post {
@@ -37,5 +41,11 @@ object WallService {
         posts = emptyArray()
         newPostID = 1
         return true
+    }
+
+    fun createComment(comment: Comment): Comment {
+        findPostByID(comment.postID) ?: throw PostNotFoundException("post #${comment.postID} not found")
+        comments += comment
+        return comment
     }
 }

@@ -1,5 +1,6 @@
 import assemble.attachments.*
 import assemble.postObjects.Post
+import assemble.wallObjects.Comment
 
 fun main() {
 //    WallService.add(
@@ -37,9 +38,12 @@ fun main() {
                 )
             )
         )
-    for (item in post.attachments!!) {
-        println("${item.type} -> $item")
-    }
-    val newVideo = VideoAttachment(Video("new video!!!"))
-    println("${newVideo.type} -> ${newVideo.video.title}")
+//    for (item in post.attachments!!) {
+//        println("${item.type} -> $item")
+//    }
+//    val newVideo = VideoAttachment(Video("new video!!!"))
+//    println("${newVideo.type} -> ${newVideo.video.title}")
+
+    println(WallService.createComment(Comment(postID = 1, text = "Example comment")))
+    println(WallService.createComment(Comment(postID = 2, text = "Example comment")))
 }

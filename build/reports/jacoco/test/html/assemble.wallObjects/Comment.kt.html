@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Comment.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">WallService</a> &gt; <a href="index.source.html" class="el_package">assemble.wallObjects</a> &gt; <span class="el_source">Comment.kt</span></div><h1>Comment.kt</h1><pre class="source lang-java linenums">package assemble.wallObjects
+
+import assemble.attachments.*
+
+<span class="fc" id="L5">data class Comment(</span>
+<span class="fc" id="L6">    val postID: Int,</span>
+<span class="pc" id="L7">    val id: Int? = null,</span>
+<span class="pc" id="L8">    val fromID: Int = 1,</span>
+<span class="pc" id="L9">    val date: Int = (System.currentTimeMillis() / 1000).toInt(),</span>
+<span class="pc" id="L10">    val text: String,</span>
+<span class="pc" id="L11">    val donut: Donut = Donut(),</span>
+<span class="pc" id="L12">    val replyToUser: Int? = null,</span>
+<span class="pc" id="L13">    val replyToComment: Int? = null,</span>
+<span class="pc" id="L14">    val attachments: Array&lt;Attachment&gt;? = null,</span>
+<span class="pc" id="L15">    val parents_stack: Array&lt;Int&gt;? = null,</span>
+<span class="pc" id="L16">    val thread: Thread? = null</span>
+){
+    override fun toString(): String {
+<span class="nc" id="L19">        return &quot;&quot;&quot;Comment to post #$postID:</span>
+<span class="nc" id="L20">            |    --- $text</span>
+<span class="nc" id="L21">        &quot;&quot;&quot;.trimMargin()</span>
+    }
+    //TODO equals() and hashCode()
+<span class="fc" id="L24">}</span>
+
+//TODO РЅРµРѕР±С…РѕРґРёРј Р»Рё РѕС‚РґРµР»СЊРЅС‹Р№ РєР»Р°СЃСЃ Donut, РµСЃР»Рё РїРѕРґРѕР±РЅС‹Р№(С‚РѕР»СЊРєРѕ СЃ СЂР°СЃС€РёСЂРµРЅРЅС‹РјРё СЃРІРѕР№СЃС‚РІР°РјРё) РјС‹ СѓР¶Рµ СЃРѕР·РґР°РІР°Р»Рё РґР»СЏ Post?
+<span class="fc" id="L27">data class Donut(</span>
+<span class="pc" id="L28">    val isDon: Boolean = false,</span>
+<span class="pc" id="L29">    val placeholder: String = &quot;no VK Donut&quot;</span>
+<span class="fc" id="L30">)</span>
+
+<span class="nc" id="L32">data class Thread(</span>
+<span class="nc" id="L33">    val count: Int = 1,</span>
+<span class="nc" id="L34">    val items: Array&lt;Comment&gt;? = null,</span>
+<span class="nc" id="L35">    val canPost: Boolean = true,</span>
+<span class="nc" id="L36">    val showReplyButton: Boolean = true,</span>
+<span class="nc" id="L37">    val groupsCanPost: Boolean = true</span>
+){
+    //TODO equals() and hashCode()
+<span class="nc" id="L40">}</span>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
