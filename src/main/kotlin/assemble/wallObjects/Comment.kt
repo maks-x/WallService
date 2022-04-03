@@ -3,10 +3,11 @@ package assemble.wallObjects
 import assemble.attachments.*
 
 data class Comment(
+    val postID: Int,
     val id: Int? = null,
     val fromID: Int = 1,
-    val date: Int? = (System.currentTimeMillis() / 1000).toInt(),
-    val text: String = "there is no comment yet",
+    val date: Int = (System.currentTimeMillis() / 1000).toInt(),
+    val text: String,
     val donut: Donut = Donut(),
     val replyToUser: Int? = null,
     val replyToComment: Int? = null,
@@ -14,6 +15,11 @@ data class Comment(
     val parents_stack: Array<Int>? = null,
     val thread: Thread? = null
 ){
+    override fun toString(): String {
+        return """Comment to post #$postID:
+            |    --- $text
+        """.trimMargin()
+    }
     //TODO equals() and hashCode()
 }
 
