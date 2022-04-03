@@ -1,4 +1,4 @@
-package assemble
+package assemble.postObjects
 
 data class Reposts(
     val count: Int = 0,

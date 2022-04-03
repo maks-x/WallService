@@ -1,9 +1,9 @@
-import assemble.*
 import assemble.attachments.*
+import assemble.postObjects.Post
 
 fun main() {
 //    WallService.add(
-//        Post(
+//        assemble.postObjects.Post(
 //            text = "This is the first post on our wall!",
 //            likes = Likes(count = 89),
 //            comments = Comments(count = 65),
@@ -13,7 +13,7 @@ fun main() {
 //    )
 //
 //    WallService.add(
-//        Post(
+//        assemble.postObjects.Post(
 //            text = "This is the second post on our wall!"
 //        )
 //    )
@@ -21,7 +21,7 @@ fun main() {
 //    println(WallService.postByID(2))
 //
 //    Thread.sleep(2000)
-//    WallService.update(Post(id = 2, text = "We have updated the second post"))
+//    WallService.update(assemble.postObjects.Post(id = 2, text = "We have updated the second post"))
 //
 //    println(WallService.postByID(2))
     val post =

@@ -1,4 +1,4 @@
-package assemble
+package assemble.postObjects
 
 data class Copyright(
     val id: Int = 0,

@@ -1,3 +1,5 @@
+import assemble.postObjects.Post
+
 object WallService {
     private var posts = emptyArray<Post>()
     private var newPostID = 1

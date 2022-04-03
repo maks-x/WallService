@@ -1,3 +1,4 @@
+import assemble.postObjects.Post
 import org.junit.Test
 
 import org.junit.Assert.*
