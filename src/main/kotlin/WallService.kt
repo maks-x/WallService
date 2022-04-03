@@ -23,7 +23,7 @@ object WallService {
         return false
     }
 
-    fun postByID(requiredID: Int): Post? {
+    fun findPostByID(requiredID: Int): Post? {
         var post: Post? = null
         for ((index, item) in posts.withIndex()) {
             when (item.id) {

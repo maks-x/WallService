@@ -48,7 +48,7 @@ class WallServiceTest {
 
         val post1 = WallService.add(Post(1))
         WallService.add(Post(2))
-        val result = WallService.postByID(1)
+        val result = WallService.findPostByID(1)
 
         assertEquals(post1, result)
     }
