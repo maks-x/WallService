@@ -1,6 +1,4 @@
-package assemble
-
-import Post
+package assemble.postObjects
 
 data class Donut(
     val isDonut: Boolean = false,

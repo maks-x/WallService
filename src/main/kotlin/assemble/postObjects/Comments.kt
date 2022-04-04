@@ -1,4 +1,4 @@
-package assemble
+package assemble.postObjects
 
 data class Comments(
     val count: Int = 0,

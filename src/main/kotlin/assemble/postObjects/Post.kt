@@ -1,4 +1,5 @@
-import assemble.*
+package assemble.postObjects
+
 import assemble.attachments.*
 import java.time.Instant
 import java.time.LocalDateTime
@@ -39,7 +40,7 @@ data class Post(
     override fun toString(): String {
         return """
             ///////////////////////////////////
-            Post ID: $id  Author: $fromID    ${
+            assemble.postObjects.Post ID: $id  Author: $fromID    ${
             //TODO возможно с датой можно проще и лаконичнее, но пока так)
             LocalDateTime.ofInstant(Instant.ofEpochSecond(date.toLong()), ZoneOffset.systemDefault())
         }

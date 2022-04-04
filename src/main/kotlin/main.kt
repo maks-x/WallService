@@ -1,9 +1,10 @@
-import assemble.*
 import assemble.attachments.*
+import assemble.postObjects.Post
+import assemble.wallObjects.Comment
 
 fun main() {
 //    WallService.add(
-//        Post(
+//        assemble.postObjects.Post(
 //            text = "This is the first post on our wall!",
 //            likes = Likes(count = 89),
 //            comments = Comments(count = 65),
@@ -13,7 +14,7 @@ fun main() {
 //    )
 //
 //    WallService.add(
-//        Post(
+//        assemble.postObjects.Post(
 //            text = "This is the second post on our wall!"
 //        )
 //    )
@@ -21,7 +22,7 @@ fun main() {
 //    println(WallService.postByID(2))
 //
 //    Thread.sleep(2000)
-//    WallService.update(Post(id = 2, text = "We have updated the second post"))
+//    WallService.update(assemble.postObjects.Post(id = 2, text = "We have updated the second post"))
 //
 //    println(WallService.postByID(2))
     val post =
@@ -37,9 +38,18 @@ fun main() {
                 )
             )
         )
-    for (item in post.attachments!!) {
-        println("${item.type} -> $item")
-    }
-    val newVideo = VideoAttachment(Video("new video!!!"))
-    println("${newVideo.type} -> ${newVideo.video.title}")
+//    for (item in post.attachments!!) {
+//        println("${item.type} -> $item")
+//    }
+//    val newVideo = VideoAttachment(Video("new video!!!"))
+//    println("${newVideo.type} -> ${newVideo.video.title}")
+
+    println(WallService.createComment(Comment(postID = 1, id = 1, text = "Example comment")))
+    //println(WallService.createComment(Comment(postID = 2, id = 2, text = "Example comment"))
+    WallService.reportComment(commentID = 1, reason = 0)
+    WallService.reportComment(commentID = 1, reason = 5)
+    WallService.reportComment(commentID = 1, reason = 8)
+    WallService.reportComment(commentID = 1, reason = 0)
+    WallService.reportComment(commentID = 1, reason = 4)
+    for (item in WallService.getReports()) println(item)
 }
