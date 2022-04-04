@@ -44,6 +44,12 @@ fun main() {
 //    val newVideo = VideoAttachment(Video("new video!!!"))
 //    println("${newVideo.type} -> ${newVideo.video.title}")
 
-    println(WallService.createComment(Comment(postID = 1, text = "Example comment")))
-    println(WallService.createComment(Comment(postID = 2, text = "Example comment")))
+    println(WallService.createComment(Comment(postID = 1, id = 1, text = "Example comment")))
+    //println(WallService.createComment(Comment(postID = 2, id = 2, text = "Example comment"))
+    WallService.reportComment(commentID = 1, reason = 0)
+    WallService.reportComment(commentID = 1, reason = 5)
+    WallService.reportComment(commentID = 1, reason = 8)
+    WallService.reportComment(commentID = 1, reason = 0)
+    WallService.reportComment(commentID = 1, reason = 4)
+    for (item in WallService.getReports()) println(item)
 }
