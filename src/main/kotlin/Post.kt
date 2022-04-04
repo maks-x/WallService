@@ -1,4 +1,5 @@
 import assemble.*
+import assemble.attachments.*
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneOffset
@@ -20,6 +21,7 @@ data class Post(
     val views: Views = Views(),
     val postType: String = "post",
     val postSource: PostSource? = null,
+    val attachments: Array<Attachment>? = null,
     val geo: Geo? = null,
     val signerID: Int = 0,
     val copyHistory: Array<Post>? = null,
@@ -31,16 +33,16 @@ data class Post(
     val isFavorite: Boolean = false,
     val donut: Donut = Donut(),
     val postponedID: Boolean = false
-    ) {
+) {
 
     @Override
     override fun toString(): String {
         return """
             ///////////////////////////////////
             Post ID: $id  Author: $fromID    ${
-                //TODO возможно с датой можно проще и лаконичнее, но пока так)
-                LocalDateTime.ofInstant(Instant.ofEpochSecond(date.toLong()), ZoneOffset.systemDefault())
-            }
+            //TODO возможно с датой можно проще и лаконичнее, но пока так)
+            LocalDateTime.ofInstant(Instant.ofEpochSecond(date.toLong()), ZoneOffset.systemDefault())
+        }
             ***
                 $text
             ***
